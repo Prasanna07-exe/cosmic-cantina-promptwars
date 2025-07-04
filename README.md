@@ -122,22 +122,6 @@ While built as a hackathon project, **Cosmic Cantina** has commercial viability:
 
 ---
 
-## 📸 Screenshots / UI Preview
-
-<details>
-  <summary>📷 Click to view UI examples</summary>
-
-- ✨ Student Dashboard  
-- 🍽️ Menu Browsing Page  
-- 🛒 Cart and Checkout Flow  
-- 🛠️ Staff Order Management Panel  
-
-*(Insert screenshots or animated GIFs here)*
-
-</details>
-
----
-
 ## 📂 Project Folder Structure
 
 ```bash
