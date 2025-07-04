@@ -85,6 +85,22 @@ College students often face:
 
 ---
 
+## 🔐 Existing Staff Login Credentials (Experimental – VIT Chennai)
+
+The following staff accounts are **preloaded in the database** for testing and demonstration purposes. These accounts belong to the **canteen staff** managing different outlets in VIT Chennai (sample for testing) . Use these credentials to log in to the **Staff Portal**.
+
+| Full Name         | Email Address                      | Password (To Be Added) |
+|-------------------|-------------------------------------|------------------------|
+| Gazebo C3         | gazebo3vitc@gmail.com               | gazeboc3@pass#
+| North Square C1   | northsquarec1vitc@gmail.com         | northsquarec1@pass#        |
+| Gazebo C2         | gazebo2vitc@gmail.com               | gazeboc2@pass#      |
+| North Square C3   | northsquarec3vitc@gmail.com         | northsquarec3@pass#       |
+| Gazebo C1         | gazebocvitc@gmail.com               | gazeboc1@pass#        |
+| Gazebo C4         | gazebo4vitc@gmail.com               | gazeboc4@pass#        |
+| North Square C2   | northsquare2vitc@gmail.com          | northsquarec2@pass#        |
+| Gymkhana          | gymkhanavitc@gmail.com              | gymkhana@pass#       |
+| North Square C4   | northsquare4vitc@gmail.com          | northsquarec4@pass#        |
+
 ## 🛠 Functional Highlights
 
 ✅ Smooth and responsive UI  
