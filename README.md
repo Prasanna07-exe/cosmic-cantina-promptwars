@@ -78,7 +78,7 @@ College students often face:
 - 🔐 Staff authentication
 - 📊 View all incoming orders for their outlet
 - 🔄 Update order status with control buttons:
-  - "Processing"
+  - "Start Processing"
   - "Order Ready"
   - "Completed"
 - 🔁 Updates reflected instantly in the student dashboard
@@ -103,6 +103,7 @@ College students often face:
 While built as a hackathon project, **Cosmic Cantina** has commercial viability:
 
 ### Monetization Ideas:
+- **Payment Gateway** to process payment online when completing checkout
 - **SaaS Licensing** to other college campuses
 - **Premium Queue Passes** for express orders
 - **Outlet Subscription** for real-time analytics, priority support
@@ -112,11 +113,10 @@ While built as a hackathon project, **Cosmic Cantina** has commercial viability:
 
 ## 🏅 Bounties & Challenges Completed
 
-✅ Full-Stack Project with Role-Based Functionality  
-✅ Real-Time Order Status Integration  
-✅ Campus-Wide Menu System Implemented  
-✅ Smooth Frontend Animations with TailwindCSS  
-✅ Staff Order Management Flow  
+✅ Identity - Submitted an AI-generated Star Wars–inspired character that reflects our team’s name, energy, and style. 
+✅ Easter Egg- Pops out when you click on "Smart Digital Ordering" on the landing page of our site. 
+✅ Added 3D effects to the website which feels alive, immersive, and dynamic.
+✅ Project explaination and working video uploaded on youtube
 ✅ Live Deployment on Netlify  
 ✅ Hackathon Track Submission: **Full Stack**
 
