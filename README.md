@@ -121,20 +121,3 @@ While built as a hackathon project, **Cosmic Cantina** has commercial viability:
 ✅ Hackathon Track Submission: **Full Stack**
 
 ---
-
-## 📂 Project Folder Structure
-
-```bash
-cosmic-cantina/
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── pages/
-│   ├── contexts/
-│   ├── hooks/
-│   └── utils/
-├── .env
-├── tailwind.config.js
-├── index.html
-└── README.md
