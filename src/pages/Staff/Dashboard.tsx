@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash2, Clock, CheckCircle, AlertCircle, Package, X, DollarSign, Users, Package2, Crown, Shield } from 'lucide-react';
+import { Plus, Edit, Trash2, Clock, CheckCircle, AlertCircle, Package, X, DollarSign, Users, Package2, Crown, Shield, Coffee } from 'lucide-react';
 import Header from '../../components/Layout/Header';
 import Toast from '../../components/Common/Toast';
 import { MenuItem, Order } from '../../types';
@@ -359,21 +359,21 @@ const StaffDashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen cosmic-gradient flex items-center justify-center">
+      <div className="min-h-screen modern-gradient flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 glass-spinner rounded-full animate-spin mx-auto mb-6"></div>
+          <div className="w-16 h-16 modern-spinner rounded-full animate-spin mx-auto mb-6"></div>
           <div className="flex items-center justify-center space-x-3">
-            <Crown className="w-6 h-6 text-yellow-500" />
+            <Crown className="w-6 h-6 text-emerald-500" />
             <span className="text-xl font-medium text-gray-200">Loading Command Center...</span>
           </div>
-          <p className="text-gray-400 text-sm mt-2">Preparing your cosmic kitchen</p>
+          <p className="text-gray-400 text-sm mt-2">Preparing your dashboard</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen cosmic-gradient">
+    <div className="min-h-screen modern-gradient">
       <Header title={`${user?.full_name || 'Staff'} Command Center`} />
 
       {/* Toast Notifications */}
@@ -394,7 +394,7 @@ const StaffDashboard: React.FC = () => {
               onClick={() => setActiveTab('orders')}
               className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'orders'
-                  ? 'border-yellow-500 text-yellow-400'
+                  ? 'border-emerald-500 text-emerald-400'
                   : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-400'
               }`}
             >
@@ -404,7 +404,7 @@ const StaffDashboard: React.FC = () => {
               onClick={() => setActiveTab('menu')}
               className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'menu'
-                  ? 'border-yellow-500 text-yellow-400'
+                  ? 'border-emerald-500 text-emerald-400'
                   : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-400'
               }`}
             >
@@ -425,7 +425,7 @@ const StaffDashboard: React.FC = () => {
                 </div>
                 <div className="glass-morphism px-4 py-2 rounded-lg border border-white/20">
                   <span className="text-sm text-gray-400">Pending: </span>
-                  <span className="font-semibold text-yellow-400">
+                  <span className="font-semibold text-amber-400">
                     {orders.filter(o => o.status === 'pending').length}
                   </span>
                 </div>
@@ -458,7 +458,7 @@ const StaffDashboard: React.FC = () => {
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-xl font-bold cosmic-text">₹{order.total_amount}</p>
+                        <p className="text-xl font-bold gradient-text">₹{order.total_amount}</p>
                         <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}>
                           {getStatusIcon(order.status)}
                           <span className="ml-1 capitalize">{order.status}</span>
@@ -484,15 +484,18 @@ const StaffDashboard: React.FC = () => {
                       <button
                         onClick={() => updateOrderStatus(order.id, 'processing')}
                         disabled={order.status !== 'pending' || isOrderUpdating(order.id, 'processing')}
-                        className="px-4 py-2 ios-button text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm cosmic-glow"
+                        className="px-4 py-2 modern-button text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
                       >
                         {isOrderUpdating(order.id, 'processing') ? 'Updating...' : 'Start Processing'}
                       </button>
                       <button
                         onClick={() => updateOrderStatus(order.id, 'ready')}
                         disabled={order.status !== 'processing' || isOrderUpdating(order.id, 'ready')}
-                        className="px-4 py-2 ios-button text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
-                        style={{ boxShadow: '0 0 20px rgba(34, 197, 94, 0.4)' }}
+                        className="px-4 py-2 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
+                        style={{ 
+                          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%)',
+                          boxShadow: '0 0 20px rgba(34, 197, 94, 0.4)' 
+                        }}
                       >
                         {isOrderUpdating(order.id, 'ready') ? 'Updating...' : 'Mark Ready'}
                       </button>
@@ -521,8 +524,11 @@ const StaffDashboard: React.FC = () => {
                   setEditingItem(null);
                   setIsEditModalOpen(true);
                 }}
-                className="flex items-center space-x-2 ios-button text-white px-4 py-2 rounded-lg transition-all duration-200"
-                style={{ boxShadow: '0 0 20px rgba(245, 158, 11, 0.4)' }}
+                className="flex items-center space-x-2 text-white px-4 py-2 rounded-lg transition-all duration-200"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.9) 100%)',
+                  boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)' 
+                }}
               >
                 <Plus className="w-5 h-5" />
                 <span>Add New Item</span>
@@ -556,7 +562,7 @@ const StaffDashboard: React.FC = () => {
                           setEditingItem(item);
                           setIsEditModalOpen(true);
                         }}
-                        className="flex-1 flex items-center justify-center space-x-2 ios-button text-white px-4 py-2 rounded-lg transition-all duration-200 cosmic-glow"
+                        className="flex-1 flex items-center justify-center space-x-2 modern-button text-white px-4 py-2 rounded-lg transition-all duration-200"
                       >
                         <Edit className="w-4 h-4" />
                         <span>Edit</span>
@@ -564,8 +570,11 @@ const StaffDashboard: React.FC = () => {
                       <button
                         onClick={() => handleDeleteMenuItem(item.id)}
                         disabled={deletingMenuItem === item.id}
-                        className="flex-1 flex items-center justify-center space-x-2 ios-button text-white px-4 py-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                        style={{ boxShadow: '0 0 20px rgba(239, 68, 68, 0.4)' }}
+                        className="flex-1 flex items-center justify-center space-x-2 text-white px-4 py-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        style={{ 
+                          background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.9) 100%)',
+                          boxShadow: '0 0 20px rgba(239, 68, 68, 0.4)' 
+                        }}
                       >
                         <Trash2 className="w-4 h-4" />
                         <span>{deletingMenuItem === item.id ? 'Deleting...' : 'Delete'}</span>
@@ -633,7 +642,7 @@ const StaffDashboard: React.FC = () => {
                   value={editForm.description}
                   onChange={(e) => setEditForm(prev => ({ ...prev, description: e.target.value }))}
                   rows={3}
-                  className="w-full px-3 py-2 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full px-3 py-2 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                   placeholder="Enter item description"
                   disabled={savingMenuItem}
                 />
@@ -652,7 +661,7 @@ const StaffDashboard: React.FC = () => {
                     min="0"
                     value={editForm.price}
                     onChange={(e) => setEditForm(prev => ({ ...prev, price: e.target.value }))}
-                    className="w-full px-3 py-2 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-3 py-2 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     placeholder="0.00"
                     disabled={savingMenuItem}
                   />
@@ -668,7 +677,7 @@ const StaffDashboard: React.FC = () => {
                     min="1"
                     value={editForm.serves}
                     onChange={(e) => setEditForm(prev => ({ ...prev, serves: e.target.value }))}
-                    className="w-full px-3 py-2 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-3 py-2 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     placeholder="1"
                     disabled={savingMenuItem}
                   />
@@ -684,7 +693,7 @@ const StaffDashboard: React.FC = () => {
                     min="0"
                     value={editForm.quantity_available}
                     onChange={(e) => setEditForm(prev => ({ ...prev, quantity_available: e.target.value }))}
-                    className="w-full px-3 py-2 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-3 py-2 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     placeholder="0"
                     disabled={savingMenuItem}
                   />
@@ -700,7 +709,7 @@ const StaffDashboard: React.FC = () => {
                   <select
                     value={editForm.category}
                     onChange={(e) => setEditForm(prev => ({ ...prev, category: e.target.value }))}
-                    className="w-full px-3 py-2 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-3 py-2 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     disabled={savingMenuItem}
                   >
                     <option value="main_course" className="bg-black text-white">Main Course</option>
@@ -737,7 +746,7 @@ const StaffDashboard: React.FC = () => {
                   type="text"
                   value={editForm.image_url}
                   onChange={(e) => setEditForm(prev => ({ ...prev, image_url: e.target.value }))}
-                  className="w-full px-3 py-2 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full px-3 py-2 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                   placeholder="https://example.com/image.jpg"
                   disabled={savingMenuItem}
                 />
@@ -759,8 +768,11 @@ const StaffDashboard: React.FC = () => {
               <button
                 onClick={handleSaveMenuItem}
                 disabled={savingMenuItem}
-                className="flex-1 px-4 py-2 ios-button text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-                style={{ boxShadow: '0 0 20px rgba(245, 158, 11, 0.4)' }}
+                className="flex-1 px-4 py-2 text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.9) 100%)',
+                  boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)' 
+                }}
               >
                 <Shield className="w-4 h-4" />
                 <span>{savingMenuItem ? 'Saving...' : editingItem ? 'Update Item' : 'Create Item'}</span>
