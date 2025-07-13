@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Search, Filter, Plus, Minus, Star, ShoppingCart, X, Package, CheckCircle, AlertCircle, Zap, Shield, LogOut } from 'lucide-react';
+import { Clock, Search, Filter, Plus, Minus, Star, ShoppingCart, X, Package, CheckCircle, AlertCircle, Coffee, Shield, LogOut } from 'lucide-react';
 import Header from '../../components/Layout/Header';
 import Toast from '../../components/Common/Toast';
 import { MenuItem, CartItem, Order } from '../../types';
@@ -401,21 +401,21 @@ const StudentDashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen cosmic-gradient flex items-center justify-center">
+      <div className="min-h-screen modern-gradient flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 glass-spinner rounded-full animate-spin mx-auto mb-6"></div>
+          <div className="w-16 h-16 modern-spinner rounded-full animate-spin mx-auto mb-6"></div>
           <div className="flex items-center justify-center space-x-3">
-            <Zap className="w-6 h-6 text-cosmic-500" />
+            <Coffee className="w-6 h-6 text-indigo-500" />
             <span className="text-xl font-medium text-gray-200">Loading Menu...</span>
           </div>
-          <p className="text-gray-400 text-sm mt-2">Preparing your dining experience</p>
+          <p className="text-gray-400 text-sm mt-2">Preparing your experience</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen cosmic-gradient">
+    <div className="min-h-screen modern-gradient">
       <Header
         title={activeTab === 'menu' ? 'Menu' : 'Your Orders'}
         showCart={true}
@@ -437,7 +437,7 @@ const StudentDashboard: React.FC = () => {
                 </p>
               )}
               <p className="text-xs text-gray-400">
-                Ready to explore our cosmic menu?
+                Ready to explore our menu?
               </p>
             </div>
             <button
@@ -469,7 +469,7 @@ const StudentDashboard: React.FC = () => {
               onClick={() => setActiveTab('menu')}
               className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'menu'
-                  ? 'border-cosmic-500 text-cosmic-400'
+                  ? 'border-indigo-500 text-indigo-400'
                   : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-400'
               }`}
             >
@@ -479,7 +479,7 @@ const StudentDashboard: React.FC = () => {
               onClick={() => setActiveTab('orders')}
               className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === 'orders'
-                  ? 'border-cosmic-500 text-cosmic-400'
+                  ? 'border-indigo-500 text-indigo-400'
                   : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-400'
               }`}
             >
@@ -526,7 +526,7 @@ const StudentDashboard: React.FC = () => {
                   placeholder="Search for delicacies..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-cosmic-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 />
               </div>
               <div className="relative">
@@ -534,7 +534,7 @@ const StudentDashboard: React.FC = () => {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="pl-10 pr-8 py-3 glass-input rounded-lg focus:ring-2 focus:ring-cosmic-500 focus:border-transparent appearance-none min-w-[200px]"
+                  className="pl-10 pr-8 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent appearance-none min-w-[200px]"
                 >
                   {categories.map(category => (
                     <option key={category} value={category} className="bg-black text-white">
@@ -589,12 +589,12 @@ const StudentDashboard: React.FC = () => {
                           </span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm font-medium text-cosmic-400">{item.canteen_name}</span>
+                          <span className="text-sm font-medium text-indigo-400">{item.canteen_name}</span>
                           <button
                             onClick={() => addToCart(item)}
                             disabled={!canAddToCart || addingToCart === item.id}
                             className={`flex items-center space-x-2 ios-button text-white px-4 py-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
-                              canAddToCart ? 'cosmic-glow' : ''
+                              canAddToCart ? 'modern-button' : ''
                             }`}
                           >
                             <Plus className="w-4 h-4" />
@@ -648,7 +648,7 @@ const StudentDashboard: React.FC = () => {
                 <p className="text-gray-400 mb-6">Your orders will appear here</p>
                 <button
                   onClick={() => setActiveTab('menu')}
-                  className="ios-button text-white px-6 py-2 rounded-lg transition-all duration-200 cosmic-glow"
+                  className="modern-button text-white px-6 py-2 rounded-lg transition-all duration-200"
                 >
                   Browse Menu
                 </button>
@@ -668,7 +668,7 @@ const StudentDashboard: React.FC = () => {
                         </p>
                       </div>
                       <div className="text-left sm:text-right">
-                        <p className="text-2xl font-bold cosmic-text">₹{order.total_amount}</p>
+                        <p className="text-2xl font-bold gradient-text">₹{order.total_amount}</p>
                         <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}>
                           {getStatusIcon(order.status)}
                           <span className="ml-1 capitalize">{order.status}</span>
@@ -688,7 +688,7 @@ const StudentDashboard: React.FC = () => {
                             />
                             <div className="flex-1">
                               <h5 className="font-medium text-white">{item.menu_item.name}</h5>
-                              <p className="text-sm text-cosmic-400">{item.menu_item.canteen_name}</p>
+                              <p className="text-sm text-indigo-400">{item.menu_item.canteen_name}</p>
                             </div>
                             <div className="text-left">
                               <p className="font-medium text-white">x{item.quantity}</p>
@@ -711,8 +711,8 @@ const StudentDashboard: React.FC = () => {
                     {order.status === 'processing' && (
                       <div className="status-processing rounded-lg p-4">
                         <div className="flex items-center">
-                          <Package className="w-5 h-5 text-cosmic-400 mr-2" />
-                          <span className="text-cosmic-300 font-medium">Your order is being prepared by our chefs</span>
+                          <Package className="w-5 h-5 text-indigo-400 mr-2" />
+                          <span className="text-indigo-300 font-medium">Your order is being prepared by our chefs</span>
                         </div>
                       </div>
                     )}
@@ -809,12 +809,12 @@ const StudentDashboard: React.FC = () => {
               <div className="border-t border-white/20 p-6">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-lg font-semibold text-white">Total:</span>
-                  <span className="text-2xl font-bold cosmic-text">₹{cartTotal.toFixed(2)}</span>
+                  <span className="text-2xl font-bold gradient-text">₹{cartTotal.toFixed(2)}</span>
                 </div>
                 <button
                   onClick={handleCheckout}
                   disabled={checkoutLoading}
-                  className="w-full ios-button text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 cosmic-glow"
+                  className="w-full modern-button text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 >
                   <Shield className="w-5 h-5" />
                   <span>{checkoutLoading ? 'Processing...' : 'Proceed to Checkout'}</span>
