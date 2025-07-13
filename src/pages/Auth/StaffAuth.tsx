@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChefHat, ArrowLeft, Mail, Lock, User, Phone, Crown, Sparkles, Zap, Star } from 'lucide-react';
+import { ChefHat, ArrowLeft, Mail, Lock, User, Phone, Crown, UserCheck, Award } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 const StaffAuth: React.FC = () => {
@@ -72,14 +72,14 @@ const StaffAuth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen cosmic-gradient relative overflow-hidden">
+    <div className="min-h-screen modern-gradient relative overflow-hidden">
       {/* Enhanced Parallax Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Dynamic Background Layers */}
         <div 
           className="absolute inset-0 opacity-20"
           style={{
-            background: `radial-gradient(ellipse at ${mousePosition.x}% ${mousePosition.y}%, rgba(255, 149, 0, 0.15) 0%, transparent 60%)`,
+            background: `radial-gradient(ellipse at ${mousePosition.x}% ${mousePosition.y}%, rgba(16, 185, 129, 0.15) 0%, transparent 60%)`,
             transform: `translateY(${scrollY * 0.3}px)`,
             transition: 'background 0.3s ease',
           }}
@@ -87,14 +87,14 @@ const StaffAuth: React.FC = () => {
         <div 
           className="absolute inset-0 opacity-15"
           style={{
-            background: `radial-gradient(ellipse at ${100 - mousePosition.x}% ${100 - mousePosition.y}%, rgba(255, 193, 7, 0.12) 0%, transparent 60%)`,
+            background: `radial-gradient(ellipse at ${100 - mousePosition.x}% ${100 - mousePosition.y}%, rgba(5, 150, 105, 0.12) 0%, transparent 60%)`,
             transform: `translateY(${scrollY * 0.2}px)`,
             transition: 'background 0.3s ease',
           }}
         />
         
-        {/* Floating Interactive Particles */}
-        {[...Array(18)].map((_, i) => (
+        {/* Floating Particles */}
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
             className="absolute floating-element"
@@ -103,39 +103,38 @@ const StaffAuth: React.FC = () => {
               top: `${Math.random() * 100}%`,
               width: `${Math.random() * 8 + 3}px`,
               height: `${Math.random() * 8 + 3}px`,
-              background: i % 4 === 0 ? '#FF9500' : i % 4 === 1 ? '#FFCC00' : i % 4 === 2 ? '#FF6B35' : '#FFD700',
+              background: i % 4 === 0 ? '#10b981' : i % 4 === 1 ? '#059669' : i % 4 === 2 ? '#047857' : '#065f46',
               borderRadius: '50%',
               animationDelay: `${Math.random() * 10}s`,
-              opacity: 0.5,
+              opacity: 0.4,
               filter: 'blur(0.5px)',
               transform: `translate(${(mousePosition.x - 50) * 0.25}px, ${(mousePosition.y - 50) * 0.25}px) translateY(${scrollY * 0.12}px)`,
               transition: 'transform 0.4s ease',
-              boxShadow: '0 0 15px currentColor',
+              boxShadow: '0 0 10px currentColor',
             }}
           />
         ))}
 
-        {/* Chef-themed Geometric Shapes */}
+        {/* Geometric Shapes */}
         <div 
-          className="absolute top-16 right-16 w-40 h-40 border-2 border-yellow-500/20 rounded-full"
+          className="absolute top-16 right-16 w-40 h-40 border-2 border-emerald-500/20 rounded-full"
           style={{
             transform: `rotate(${mousePosition.x * 0.4}deg) translateY(${scrollY * 0.18}px)`,
             transition: 'transform 0.3s ease',
           }}
         />
         <div 
-          className="absolute bottom-16 left-16 w-28 h-28 border-2 border-orange-500/20 rotate-45"
+          className="absolute bottom-16 left-16 w-28 h-28 border-2 border-teal-500/20 rounded-lg"
           style={{
-            transform: `rotate(${45 + mousePosition.y * 0.3}deg) translateY(${scrollY * -0.12}px)`,
+            transform: `rotate(${mousePosition.y * 0.3}deg) translateY(${scrollY * -0.12}px)`,
             transition: 'transform 0.3s ease',
           }}
         />
         <div 
-          className="absolute top-1/2 left-8 w-20 h-20 border border-yellow-400/30"
+          className="absolute top-1/2 left-8 w-20 h-20 border border-emerald-400/30 rounded-full"
           style={{
             transform: `rotate(${mousePosition.x * 0.2}deg) translateY(${scrollY * 0.08}px)`,
             transition: 'transform 0.3s ease',
-            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
           }}
         />
       </div>
@@ -146,7 +145,7 @@ const StaffAuth: React.FC = () => {
           <div className="text-center mb-8">
             <Link 
               to="/" 
-              className="inline-flex items-center text-gray-400 hover:text-yellow-300 mb-6 transition-all duration-500 hover-lift group"
+              className="inline-flex items-center text-gray-400 hover:text-emerald-300 mb-6 transition-all duration-500 hover-lift group"
               style={{
                 transform: `translateY(${scrollY * 0.05}px)`,
               }}
@@ -162,11 +161,10 @@ const StaffAuth: React.FC = () => {
                 transition: 'transform 0.3s ease',
               }}
             >
-              <div className="w-16 h-16 glass-morphism rounded-xl flex items-center justify-center mr-4 hover:scale-110 transition-all duration-500 group relative overflow-hidden" style={{ boxShadow: '0 0 20px rgba(255, 149, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)' }}>
+              <div className="w-16 h-16 glass-morphism rounded-xl flex items-center justify-center mr-4 hover:scale-110 transition-all duration-500 group relative overflow-hidden" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)' }}>
                 <ChefHat className="w-8 h-8 text-white group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                {/* Sparkle effects */}
-                <Star className="absolute top-1 right-1 w-3 h-3 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <Award className="absolute top-1 right-1 w-3 h-3 text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
               </div>
               <span className="text-3xl font-bold text-white">Staff Portal</span>
             </div>
@@ -177,7 +175,7 @@ const StaffAuth: React.FC = () => {
                 transform: `translateY(${scrollY * 0.03}px)`,
               }}
             >
-              {isLogin ? 'Welcome back, Chef! Sign in to your account' : 'Join the Team - Create your staff account'}
+              {isLogin ? 'Welcome back! Sign in to your staff account' : 'Join our team - Create your staff account'}
             </p>
           </div>
 
@@ -193,7 +191,7 @@ const StaffAuth: React.FC = () => {
             <div 
               className="absolute inset-0 opacity-10"
               style={{
-                background: `linear-gradient(${mousePosition.x * 3.6}deg, rgba(255, 149, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%)`,
+                background: `linear-gradient(${mousePosition.x * 3.6}deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%)`,
                 transition: 'background 0.3s ease',
               }}
             />
@@ -207,12 +205,12 @@ const StaffAuth: React.FC = () => {
 
               {!isLogin && (
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-yellow-300 transition-colors">
+                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-emerald-300 transition-colors">
                     Full Name
                   </label>
                   <div className="relative">
                     <User className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                      focusedField === 'fullName' ? 'text-yellow-400 scale-110' : 'text-gray-400'
+                      focusedField === 'fullName' ? 'text-emerald-400 scale-110' : 'text-gray-400'
                     }`} />
                     <input
                       type="text"
@@ -221,7 +219,7 @@ const StaffAuth: React.FC = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
                       onFocus={() => setFocusedField('fullName')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                      className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                       placeholder="Enter your full name"
                       style={{
                         transform: focusedField === 'fullName' ? 'scale(1.02)' : 'scale(1)',
@@ -232,12 +230,12 @@ const StaffAuth: React.FC = () => {
               )}
 
               <div className="group">
-                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-yellow-300 transition-colors">
+                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-emerald-300 transition-colors">
                   Email
                 </label>
                 <div className="relative">
                   <Mail className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                    focusedField === 'email' ? 'text-yellow-400 scale-110' : 'text-gray-400'
+                    focusedField === 'email' ? 'text-emerald-400 scale-110' : 'text-gray-400'
                   }`} />
                   <input
                     type="email"
@@ -246,7 +244,7 @@ const StaffAuth: React.FC = () => {
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                    className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                     placeholder="Enter your email"
                     style={{
                       transform: focusedField === 'email' ? 'scale(1.02)' : 'scale(1)',
@@ -257,12 +255,12 @@ const StaffAuth: React.FC = () => {
 
               {!isLogin && (
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-yellow-300 transition-colors">
+                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-emerald-300 transition-colors">
                     Mobile Number
                   </label>
                   <div className="relative">
                     <Phone className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                      focusedField === 'mobileNumber' ? 'text-yellow-400 scale-110' : 'text-gray-400'
+                      focusedField === 'mobileNumber' ? 'text-emerald-400 scale-110' : 'text-gray-400'
                     }`} />
                     <input
                       type="tel"
@@ -271,7 +269,7 @@ const StaffAuth: React.FC = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, mobileNumber: e.target.value }))}
                       onFocus={() => setFocusedField('mobileNumber')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                      className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                       placeholder="Enter your mobile number"
                       style={{
                         transform: focusedField === 'mobileNumber' ? 'scale(1.02)' : 'scale(1)',
@@ -282,12 +280,12 @@ const StaffAuth: React.FC = () => {
               )}
 
               <div className="group">
-                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-yellow-300 transition-colors">
+                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-emerald-300 transition-colors">
                   Password
                 </label>
                 <div className="relative">
                   <Lock className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                    focusedField === 'password' ? 'text-yellow-400 scale-110' : 'text-gray-400'
+                    focusedField === 'password' ? 'text-emerald-400 scale-110' : 'text-gray-400'
                   }`} />
                   <input
                     type="password"
@@ -296,7 +294,7 @@ const StaffAuth: React.FC = () => {
                     onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
                     onFocus={() => setFocusedField('password')}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                    className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                     placeholder="Enter your password"
                     style={{
                       transform: focusedField === 'password' ? 'scale(1.02)' : 'scale(1)',
@@ -307,12 +305,12 @@ const StaffAuth: React.FC = () => {
 
               {!isLogin && (
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-yellow-300 transition-colors">
+                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-emerald-300 transition-colors">
                     Confirm Password
                   </label>
                   <div className="relative">
                     <Lock className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                      focusedField === 'confirmPassword' ? 'text-yellow-400 scale-110' : 'text-gray-400'
+                      focusedField === 'confirmPassword' ? 'text-emerald-400 scale-110' : 'text-gray-400'
                     }`} />
                     <input
                       type="password"
@@ -321,7 +319,7 @@ const StaffAuth: React.FC = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, confirmPassword: e.target.value }))}
                       onFocus={() => setFocusedField('confirmPassword')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                      className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                       placeholder="Confirm your password"
                       style={{
                         transform: focusedField === 'confirmPassword' ? 'scale(1.02)' : 'scale(1)',
@@ -334,25 +332,28 @@ const StaffAuth: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full ios-button text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 flex items-center justify-center space-x-2 group relative overflow-hidden transition-all duration-300 hover:scale-105"
-                style={{ boxShadow: '0 0 20px rgba(255, 149, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)' }}
+                className="w-full modern-button text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 flex items-center justify-center space-x-2 group relative overflow-hidden transition-all duration-300 hover:scale-105"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.9) 100%)',
+                  boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)' 
+                }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Crown className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                 <span>{loading ? 'Please wait...' : isLogin ? 'Sign In' : 'Join the Team'}</span>
-                {!loading && <Zap className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />}
+                {!loading && <UserCheck className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />}
               </button>
             </form>
 
             <div className="mt-6 text-center">
               <button
                 onClick={() => setIsLogin(!isLogin)}
-                className="text-yellow-400 hover:text-yellow-300 font-medium transition-all duration-300 hover:scale-105 relative group"
+                className="text-emerald-400 hover:text-emerald-300 font-medium transition-all duration-300 hover:scale-105 relative group"
               >
                 <span className="relative z-10">
                   {isLogin ? "Don't have an account? Join the Team" : "Already have an account? Sign in"}
                 </span>
-                <div className="absolute inset-0 bg-yellow-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -m-2" />
+                <div className="absolute inset-0 bg-emerald-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -m-2" />
               </button>
             </div>
           </div>

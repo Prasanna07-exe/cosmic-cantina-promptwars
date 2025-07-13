@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Users, ArrowLeft, Mail, Lock, User, Phone, CreditCard, Shield, Sparkles, Zap } from 'lucide-react';
+import { Users, ArrowLeft, Mail, Lock, User, Phone, CreditCard, Shield, UserCheck } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 const StudentAuth: React.FC = () => {
@@ -74,14 +74,14 @@ const StudentAuth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen cosmic-gradient relative overflow-hidden">
+    <div className="min-h-screen modern-gradient relative overflow-hidden">
       {/* Enhanced Parallax Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Dynamic Background Layers */}
         <div 
           className="absolute inset-0 opacity-20"
           style={{
-            background: `radial-gradient(ellipse at ${mousePosition.x}% ${mousePosition.y}%, rgba(0, 122, 255, 0.15) 0%, transparent 60%)`,
+            background: `radial-gradient(ellipse at ${mousePosition.x}% ${mousePosition.y}%, rgba(99, 102, 241, 0.15) 0%, transparent 60%)`,
             transform: `translateY(${scrollY * 0.3}px)`,
             transition: 'background 0.3s ease',
           }}
@@ -89,14 +89,14 @@ const StudentAuth: React.FC = () => {
         <div 
           className="absolute inset-0 opacity-15"
           style={{
-            background: `radial-gradient(ellipse at ${100 - mousePosition.x}% ${100 - mousePosition.y}%, rgba(88, 86, 214, 0.12) 0%, transparent 60%)`,
+            background: `radial-gradient(ellipse at ${100 - mousePosition.x}% ${100 - mousePosition.y}%, rgba(139, 92, 246, 0.12) 0%, transparent 60%)`,
             transform: `translateY(${scrollY * 0.2}px)`,
             transition: 'background 0.3s ease',
           }}
         />
         
-        {/* Floating Interactive Particles */}
-        {[...Array(15)].map((_, i) => (
+        {/* Floating Particles */}
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
             className="absolute floating-element"
@@ -105,28 +105,28 @@ const StudentAuth: React.FC = () => {
               top: `${Math.random() * 100}%`,
               width: `${Math.random() * 6 + 2}px`,
               height: `${Math.random() * 6 + 2}px`,
-              background: i % 4 === 0 ? '#007AFF' : i % 4 === 1 ? '#5856D6' : i % 4 === 2 ? '#FF9500' : '#34C759',
+              background: i % 4 === 0 ? '#6366f1' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#22c55e' : '#f59e0b',
               borderRadius: '50%',
               animationDelay: `${Math.random() * 10}s`,
-              opacity: 0.4,
+              opacity: 0.3,
               filter: 'blur(0.5px)',
               transform: `translate(${(mousePosition.x - 50) * 0.2}px, ${(mousePosition.y - 50) * 0.2}px) translateY(${scrollY * 0.1}px)`,
               transition: 'transform 0.4s ease',
-              boxShadow: '0 0 10px currentColor',
+              boxShadow: '0 0 8px currentColor',
             }}
           />
         ))}
 
         {/* Geometric Shapes */}
         <div 
-          className="absolute top-20 left-10 w-32 h-32 border border-blue-500/20 rounded-full"
+          className="absolute top-20 left-10 w-32 h-32 border border-indigo-500/20 rounded-full"
           style={{
             transform: `rotate(${mousePosition.x * 0.5}deg) translateY(${scrollY * 0.15}px)`,
             transition: 'transform 0.3s ease',
           }}
         />
         <div 
-          className="absolute bottom-20 right-10 w-24 h-24 border border-purple-500/20"
+          className="absolute bottom-20 right-10 w-24 h-24 border border-purple-500/20 rounded-lg"
           style={{
             transform: `rotate(${mousePosition.y * 0.3}deg) translateY(${scrollY * -0.1}px)`,
             transition: 'transform 0.3s ease',
@@ -140,7 +140,7 @@ const StudentAuth: React.FC = () => {
           <div className="text-center mb-8">
             <Link 
               to="/" 
-              className="inline-flex items-center text-gray-400 hover:text-blue-300 mb-6 transition-all duration-500 hover-lift group"
+              className="inline-flex items-center text-gray-400 hover:text-indigo-300 mb-6 transition-all duration-500 hover-lift group"
               style={{
                 transform: `translateY(${scrollY * 0.05}px)`,
               }}
@@ -156,9 +156,9 @@ const StudentAuth: React.FC = () => {
                 transition: 'transform 0.3s ease',
               }}
             >
-              <div className="w-16 h-16 glass-morphism rounded-xl flex items-center justify-center mr-4 cosmic-glow hover:scale-110 transition-all duration-500 group relative overflow-hidden">
+              <div className="w-16 h-16 glass-morphism rounded-xl flex items-center justify-center mr-4 hover:scale-110 transition-all duration-500 group relative overflow-hidden" style={{ boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' }}>
                 <Users className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <span className="text-3xl font-bold text-white">Student Portal</span>
             </div>
@@ -169,7 +169,7 @@ const StudentAuth: React.FC = () => {
                 transform: `translateY(${scrollY * 0.03}px)`,
               }}
             >
-              {isLogin ? 'Welcome back! Sign in to your account' : 'Join the Digital Community - Create your student account'}
+              {isLogin ? 'Welcome back! Sign in to your account' : 'Join our community - Create your student account'}
             </p>
           </div>
 
@@ -185,7 +185,7 @@ const StudentAuth: React.FC = () => {
             <div 
               className="absolute inset-0 opacity-10"
               style={{
-                background: `linear-gradient(${mousePosition.x * 3.6}deg, rgba(0, 122, 255, 0.1) 0%, rgba(88, 86, 214, 0.1) 100%)`,
+                background: `linear-gradient(${mousePosition.x * 3.6}deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)`,
                 transition: 'background 0.3s ease',
               }}
             />
@@ -199,12 +199,12 @@ const StudentAuth: React.FC = () => {
 
               {!isLogin && (
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-blue-300 transition-colors">
+                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-indigo-300 transition-colors">
                     Full Name
                   </label>
                   <div className="relative">
                     <User className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                      focusedField === 'fullName' ? 'text-blue-400 scale-110' : 'text-gray-400'
+                      focusedField === 'fullName' ? 'text-indigo-400 scale-110' : 'text-gray-400'
                     }`} />
                     <input
                       type="text"
@@ -213,7 +213,7 @@ const StudentAuth: React.FC = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
                       onFocus={() => setFocusedField('fullName')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                      className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                       placeholder="Enter your full name"
                       style={{
                         transform: focusedField === 'fullName' ? 'scale(1.02)' : 'scale(1)',
@@ -225,12 +225,12 @@ const StudentAuth: React.FC = () => {
 
               {!isLogin && (
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-blue-300 transition-colors">
+                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-indigo-300 transition-colors">
                     Registration Number
                   </label>
                   <div className="relative">
                     <CreditCard className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                      focusedField === 'registrationNumber' ? 'text-blue-400 scale-110' : 'text-gray-400'
+                      focusedField === 'registrationNumber' ? 'text-indigo-400 scale-110' : 'text-gray-400'
                     }`} />
                     <input
                       type="text"
@@ -239,7 +239,7 @@ const StudentAuth: React.FC = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, registrationNumber: e.target.value }))}
                       onFocus={() => setFocusedField('registrationNumber')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                      className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                       placeholder="Enter your registration number"
                       style={{
                         transform: focusedField === 'registrationNumber' ? 'scale(1.02)' : 'scale(1)',
@@ -250,12 +250,12 @@ const StudentAuth: React.FC = () => {
               )}
 
               <div className="group">
-                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-blue-300 transition-colors">
+                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-indigo-300 transition-colors">
                   Email
                 </label>
                 <div className="relative">
                   <Mail className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                    focusedField === 'email' ? 'text-blue-400 scale-110' : 'text-gray-400'
+                    focusedField === 'email' ? 'text-indigo-400 scale-110' : 'text-gray-400'
                   }`} />
                   <input
                     type="email"
@@ -264,7 +264,7 @@ const StudentAuth: React.FC = () => {
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                    className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                     placeholder="Enter your email"
                     style={{
                       transform: focusedField === 'email' ? 'scale(1.02)' : 'scale(1)',
@@ -275,12 +275,12 @@ const StudentAuth: React.FC = () => {
 
               {!isLogin && (
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-blue-300 transition-colors">
+                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-indigo-300 transition-colors">
                     Mobile Number
                   </label>
                   <div className="relative">
                     <Phone className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                      focusedField === 'mobileNumber' ? 'text-blue-400 scale-110' : 'text-gray-400'
+                      focusedField === 'mobileNumber' ? 'text-indigo-400 scale-110' : 'text-gray-400'
                     }`} />
                     <input
                       type="tel"
@@ -289,7 +289,7 @@ const StudentAuth: React.FC = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, mobileNumber: e.target.value }))}
                       onFocus={() => setFocusedField('mobileNumber')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                      className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                       placeholder="Enter your mobile number"
                       style={{
                         transform: focusedField === 'mobileNumber' ? 'scale(1.02)' : 'scale(1)',
@@ -300,12 +300,12 @@ const StudentAuth: React.FC = () => {
               )}
 
               <div className="group">
-                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-blue-300 transition-colors">
+                <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-indigo-300 transition-colors">
                   Password
                 </label>
                 <div className="relative">
                   <Lock className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                    focusedField === 'password' ? 'text-blue-400 scale-110' : 'text-gray-400'
+                    focusedField === 'password' ? 'text-indigo-400 scale-110' : 'text-gray-400'
                   }`} />
                   <input
                     type="password"
@@ -314,7 +314,7 @@ const StudentAuth: React.FC = () => {
                     onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
                     onFocus={() => setFocusedField('password')}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                    className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                     placeholder="Enter your password"
                     style={{
                       transform: focusedField === 'password' ? 'scale(1.02)' : 'scale(1)',
@@ -325,12 +325,12 @@ const StudentAuth: React.FC = () => {
 
               {!isLogin && (
                 <div className="group">
-                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-blue-300 transition-colors">
+                  <label className="block text-sm font-medium text-gray-200 mb-2 group-hover:text-indigo-300 transition-colors">
                     Confirm Password
                   </label>
                   <div className="relative">
                     <Lock className={`absolute left-3 top-3 h-5 w-5 transition-all duration-300 ${
-                      focusedField === 'confirmPassword' ? 'text-blue-400 scale-110' : 'text-gray-400'
+                      focusedField === 'confirmPassword' ? 'text-indigo-400 scale-110' : 'text-gray-400'
                     }`} />
                     <input
                       type="password"
@@ -339,7 +339,7 @@ const StudentAuth: React.FC = () => {
                       onChange={(e) => setFormData(prev => ({ ...prev, confirmPassword: e.target.value }))}
                       onFocus={() => setFocusedField('confirmPassword')}
                       onBlur={() => setFocusedField(null)}
-                      className="w-full pl-10 pr-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
+                      className="w-full pl-10 pr-4 py-3 modern-input rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 hover:bg-white/8"
                       placeholder="Confirm your password"
                       style={{
                         transform: focusedField === 'confirmPassword' ? 'scale(1.02)' : 'scale(1)',
@@ -352,24 +352,24 @@ const StudentAuth: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full ios-button text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 flex items-center justify-center space-x-2 cosmic-glow group relative overflow-hidden transition-all duration-300 hover:scale-105"
+                className="w-full modern-button text-white py-3 px-4 rounded-lg font-medium disabled:opacity-50 flex items-center justify-center space-x-2 group relative overflow-hidden transition-all duration-300 hover:scale-105"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <Shield className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                 <span>{loading ? 'Please wait...' : isLogin ? 'Sign In' : 'Join the Community'}</span>
-                {!loading && <Sparkles className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />}
+                {!loading && <UserCheck className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />}
               </button>
             </form>
 
             <div className="mt-6 text-center">
               <button
                 onClick={() => setIsLogin(!isLogin)}
-                className="text-blue-400 hover:text-blue-300 font-medium transition-all duration-300 hover:scale-105 relative group"
+                className="text-indigo-400 hover:text-indigo-300 font-medium transition-all duration-300 hover:scale-105 relative group"
               >
                 <span className="relative z-10">
                   {isLogin ? "Don't have an account? Join the Community" : "Already have an account? Sign in"}
                 </span>
-                <div className="absolute inset-0 bg-blue-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -m-2" />
+                <div className="absolute inset-0 bg-indigo-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -m-2" />
               </button>
             </div>
           </div>

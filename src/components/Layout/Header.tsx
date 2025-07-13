@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LogOut, User, ShoppingCart, Utensils, Crown, Shield } from 'lucide-react';
+import { LogOut, User, ShoppingCart, Utensils, Crown, Shield, Coffee } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface HeaderProps {
@@ -53,12 +53,12 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
               }}
             >
               <div className="w-16 h-16 flex items-center justify-center cosmic-glow mr-4 group-hover:scale-110 transition-all duration-500 icon-glow relative overflow-hidden">
-                <img src="/site-icon.png" alt="Cosmic Cantina" className="w-12 h-12 rounded-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+                <img src="/site-icon.png" alt="FoodieHub" className="w-12 h-12 rounded-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
               </div>
               <div>
-                <span className="text-xl font-bold cosmic-text tracking-wide">Cosmic Cantina</span>
-                <div className="text-xs text-gray-400 font-medium">Digital Dining System</div>
+                <span className="text-xl font-bold gradient-text tracking-wide">FoodieHub</span>
+                <div className="text-xs text-gray-400 font-medium">Premium Food Ordering</div>
               </div>
             </div>
             <div 
@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
             {showCart && (
               <button
                 onClick={onCartClick}
-                className="relative p-3 text-gray-400 hover:text-white transition-all duration-300 hover-lift rounded-xl glass-morphism hover:bg-white/10 group magnetic-hover"
+                className="relative p-3 text-gray-400 hover:text-white transition-all duration-300 hover-lift rounded-xl glass-morphism hover:bg-white/10 group"
                 style={{
                   transform: `perspective(1000px) rotateX(${(mousePosition.y - 50) * 0.005}deg) rotateY(${(mousePosition.x - 50) * 0.005}deg)`,
                   transition: 'transform 0.3s ease',
@@ -101,26 +101,26 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
               <div className="flex items-center space-x-3">
                 <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
                   user?.role === 'staff' 
-                    ? 'bg-yellow-500/15' 
-                    : 'bg-blue-500/15'
+                    ? 'bg-emerald-500/15' 
+                    : 'bg-indigo-500/15'
                 }`} style={{ 
                   boxShadow: user?.role === 'staff' 
-                    ? '0 0 15px rgba(255, 149, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)' 
-                    : '0 0 15px rgba(0, 122, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)' 
+                    ? '0 0 15px rgba(16, 185, 129, 0.3)' 
+                    : '0 0 15px rgba(99, 102, 241, 0.3)' 
                 }}>
                   {user?.role === 'staff' ? (
-                    <Crown className="w-5 h-5 text-yellow-400 group-hover:rotate-12 transition-transform duration-300" />
+                    <Crown className="w-5 h-5 text-emerald-400 group-hover:rotate-12 transition-transform duration-300" />
                   ) : (
-                    <Shield className="w-5 h-5 text-blue-400 group-hover:rotate-12 transition-transform duration-300" />
+                    <Shield className="w-5 h-5 text-indigo-400 group-hover:rotate-12 transition-transform duration-300" />
                   )}
                 </div>
                 <div>
-                  <span className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">{user?.full_name}</span>
+                  <span className="text-sm font-medium text-white group-hover:text-indigo-300 transition-colors">{user?.full_name}</span>
                   {user?.role === 'student' && user?.registration_number && (
-                    <div className="text-xs text-gray-400">({user.registration_number})</div>
+                    <div className="text-xs text-gray-400">{user.registration_number}</div>
                   )}
                   <div className={`text-xs capitalize font-medium transition-colors ${
-                    user?.role === 'staff' ? 'text-yellow-400 group-hover:text-yellow-300' : 'text-blue-400 group-hover:text-blue-300'
+                    user?.role === 'staff' ? 'text-emerald-400 group-hover:text-emerald-300' : 'text-indigo-400 group-hover:text-indigo-300'
                   }`}>
                     {user?.role === 'staff' ? 'Staff Member' : 'Student'}
                   </div>
@@ -128,7 +128,7 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
               </div>
               <button
                 onClick={signOut}
-                className="p-2 text-gray-400 hover:text-red-400 transition-all duration-300 rounded-lg hover:bg-white/10 hover:scale-110 magnetic-hover ripple-effect"
+                className="p-2 text-gray-400 hover:text-red-400 transition-all duration-300 rounded-lg hover:bg-white/10 hover:scale-110"
                 title="Sign Out"
               >
                 <LogOut className="w-5 h-5" />
