@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { LogOut, User, ShoppingCart, Utensils, Crown, Shield, Coffee } from 'lucide-react';
+import { LogOut, User, ShoppingCart, Utensils, Crown, Shield, Coffee, ChefHat } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import ThemeToggle from '../Common/ThemeToggle';
 
 interface HeaderProps {
   title: string;
@@ -33,15 +34,7 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
   }, []);
 
   return (
-    <header 
-      className="glass-morphism border-b border-white/15 sticky top-0 z-30 transition-all duration-300"
-      style={{
-        backdropFilter: `blur(${Math.min(40 + scrollY * 0.1, 60)}px)`,
-        background: `linear-gradient(135deg, 
-          rgba(255, 255, 255, ${Math.min(0.06 + scrollY * 0.0001, 0.1)}) 0%, 
-          rgba(255, 255, 255, ${Math.min(0.03 + scrollY * 0.00005, 0.05)}) 100%)`,
-      }}
-    >
+    <header className="glass-morphism border-b border-black/10 dark:border-white/15 sticky top-0 z-30 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-18 py-4">
           <div className="flex items-center">
@@ -52,13 +45,13 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
                 transition: 'transform 0.3s ease',
               }}
             >
-              <div className="w-16 h-16 flex items-center justify-center cosmic-glow mr-4 group-hover:scale-110 transition-all duration-500 icon-glow relative overflow-hidden">
-                <img src="/site-icon.png" alt="FoodieHub" className="w-12 h-12 rounded-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+              <div className="w-16 h-16 flex items-center justify-center mr-4 group-hover:scale-110 transition-all duration-500 relative overflow-hidden glass-morphism rounded-2xl">
+                <ChefHat className="w-8 h-8 text-orange-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
               </div>
               <div>
                 <span className="text-xl font-bold gradient-text tracking-wide">FoodieHub</span>
-                <div className="text-xs text-gray-400 font-medium">Premium Food Ordering</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">Premium Food Ordering</div>
               </div>
             </div>
             <div 
@@ -67,15 +60,17 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
                 transform: `translateY(${scrollY * 0.02}px)`,
               }}
             >
-              <h1 className="text-lg font-medium text-gray-200">{title}</h1>
+              <h1 className="text-lg font-medium text-gray-700 dark:text-gray-200">{title}</h1>
             </div>
           </div>
 
           <div className="flex items-center space-x-4">
+            <ThemeToggle />
+            
             {showCart && (
               <button
                 onClick={onCartClick}
-                className="relative p-3 text-gray-400 hover:text-white transition-all duration-300 hover-lift rounded-xl glass-morphism hover:bg-white/10 group"
+                className="relative p-3 text-gray-600 dark:text-gray-400 hover:text-orange-500 transition-all duration-300 hover-lift rounded-xl glass-morphism group"
                 style={{
                   transform: `perspective(1000px) rotateX(${(mousePosition.y - 50) * 0.005}deg) rotateY(${(mousePosition.x - 50) * 0.005}deg)`,
                   transition: 'transform 0.3s ease',
@@ -83,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
               >
                 <ShoppingCart className="w-6 h-6 group-hover:scale-110 transition-transform" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold pulse-glow bounce-in">
+                  <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold pulse-glow bounce-in">
                     {cartCount}
                   </span>
                 )}
@@ -92,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
             
             {/* Desktop User Info */}
             <div 
-              className="hidden md:flex items-center space-x-3 glass-morphism-strong rounded-xl px-4 py-3 border border-white/15 hover-lift group"
+              className="hidden md:flex items-center space-x-3 glass-morphism-strong rounded-xl px-4 py-3 border border-black/10 dark:border-white/15 hover-lift group"
               style={{
                 transform: `perspective(1000px) rotateX(${(mousePosition.y - 50) * 0.005}deg) rotateY(${(mousePosition.x - 50) * 0.005}deg)`,
                 transition: 'transform 0.3s ease',
@@ -101,26 +96,26 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
               <div className="flex items-center space-x-3">
                 <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
                   user?.role === 'staff' 
-                    ? 'bg-emerald-500/15' 
-                    : 'bg-indigo-500/15'
+                    ? 'bg-orange-500/15' 
+                    : 'bg-red-500/15'
                 }`} style={{ 
                   boxShadow: user?.role === 'staff' 
-                    ? '0 0 15px rgba(16, 185, 129, 0.3)' 
-                    : '0 0 15px rgba(99, 102, 241, 0.3)' 
+                    ? '0 0 15px rgba(249, 115, 22, 0.3)' 
+                    : '0 0 15px rgba(220, 38, 38, 0.3)' 
                 }}>
                   {user?.role === 'staff' ? (
-                    <Crown className="w-5 h-5 text-emerald-400 group-hover:rotate-12 transition-transform duration-300" />
+                    <Crown className="w-5 h-5 text-orange-500 group-hover:rotate-12 transition-transform duration-300" />
                   ) : (
-                    <Shield className="w-5 h-5 text-indigo-400 group-hover:rotate-12 transition-transform duration-300" />
+                    <Shield className="w-5 h-5 text-red-500 group-hover:rotate-12 transition-transform duration-300" />
                   )}
                 </div>
                 <div>
-                  <span className="text-sm font-medium text-white group-hover:text-indigo-300 transition-colors">{user?.full_name}</span>
+                  <span className="text-sm font-medium text-black dark:text-white group-hover:text-orange-500 transition-colors">{user?.full_name}</span>
                   {user?.role === 'student' && user?.registration_number && (
-                    <div className="text-xs text-gray-400">{user.registration_number}</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">{user.registration_number}</div>
                   )}
                   <div className={`text-xs capitalize font-medium transition-colors ${
-                    user?.role === 'staff' ? 'text-emerald-400 group-hover:text-emerald-300' : 'text-indigo-400 group-hover:text-indigo-300'
+                    user?.role === 'staff' ? 'text-orange-500 group-hover:text-orange-400' : 'text-red-500 group-hover:text-red-400'
                   }`}>
                     {user?.role === 'staff' ? 'Staff Member' : 'Student'}
                   </div>
@@ -128,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ title, showCart = false, cartCount = 0,
               </div>
               <button
                 onClick={signOut}
-                className="p-2 text-gray-400 hover:text-red-400 transition-all duration-300 rounded-lg hover:bg-white/10 hover:scale-110"
+                className="p-2 text-gray-500 dark:text-gray-400 hover:text-red-500 transition-all duration-300 rounded-lg hover:scale-110"
                 title="Sign Out"
               >
                 <LogOut className="w-5 h-5" />
